@@ -1,0 +1,35 @@
+<Window x:Class="KeenVPN.Presentation.Views.NodeListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:KeenVPN.Presentation.Views"
+        Title="VPN Nodes" Height="400" Width="600"
+        ResizeMode="CanMinimize">
+    <Window.Resources>
+        <local:ConnectButtonTextConverter x:Key="ConnectButtonTextConverter"/>
+    </Window.Resources>
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="Available VPN Nodes" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+            <ListView ItemsSource="{Binding Nodes}" Margin="0,0,0,10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <TextBlock Text="{Binding Name}" Width="150"/>
+                            <TextBlock Text="{Binding Country}" Width="100"/>
+                            <TextBlock Text="{Binding LatencyMs}" Width="100"/>
+                            <TextBlock Text="{Binding EndpointIp}" Width="120"/>
+                            <Button Content="{Binding IsConnected, Converter={StaticResource ConnectButtonTextConverter}}"
+                                    IsEnabled="{Binding CanConnect}"
+                                    Width="80" Margin="10,0,0,0"
+                                    Command="{Binding DataContext.ConnectCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="{Binding ConnectionStatus, StringFormat=Status: {0}}" FontWeight="Bold" Margin="0,10,0,0"/>
+            <TextBlock Text="{Binding ConnectedNode.Name, StringFormat=Connected Node: {0}, TargetNullValue=None}" Margin="0,5,0,0"/>
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

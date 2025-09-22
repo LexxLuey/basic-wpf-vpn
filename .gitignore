@@ -1,0 +1,44 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+
+# NuGet Packages
+*.nupkg
+# NuGet restore
+.nuget/
+
+# Visual Studio
+.vs/
+.vscode/
+
+# Test Results
+TestResults/
+
+# Others
+*.log
+*.DS_Store
+*.idea/
+*.swp
+*.tmp
+*.bak
+*.orig
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Rider
+.idea/
+*.sln.iml
+
+# CI/CD
+/.github/
