@@ -19,8 +19,8 @@ KeenVPN is a native Windows MVP VPN client built with .NET 9 and WPF. It demonst
 
 2. **Clone the Repository:**
    ```sh
-   git clone https://github.com/lexxluey/KeenVPN.git
-   cd KeenVPN
+   git clone https://github.com/LexxLuey/basic-wpf-vpn.git
+   cd basic-wpf-vpn
    ```
 
 3. **Restore & Build:**
@@ -31,22 +31,19 @@ KeenVPN is a native Windows MVP VPN client built with .NET 9 and WPF. It demonst
 
 4. **Run the App:**
    - Open in Visual Studio and press F5, or
-   - Run: `dotnet run --project KeenVPN`
+   - Run: `dotnet run`
+   - Login with  ("test@example.com", "password123") or ("user@vpn.com", "vpnpass")
 
-5. **Run Tests:**
-   ```sh
-   dotnet test KeenVPN.Tests/KeenVPN.Tests.csproj
-   ```
 
 ## Architecture Explanation
 - **Core:** Models and interfaces (`User`, `VpnNode`, `Session`, `IAuthService`, `IVpnService`)
 - **Infrastructure:** Mock API and services (`MockAuthService`, `MockVpnService`, `SessionStore`)
 - **Presentation:** WPF views and viewmodels (`SignInWindow`, `NodeListWindow`, `AuthViewModel`, `NodeListViewModel`)
 - **Utilities:** Notification helper, value converters
-- **Testing:** xUnit test project for service logic
 - **CI/CD:** Automated build and test with GitHub Actions (`.github/workflows/dotnet.yml`)
 
 ## AI Prompts Used
+- "As a senior full stack engineer, advise on how to build this mvp on Windows. Your proposed implementation overview should not go into code details but just high level options for delivering the highest quality mvp submission"
 - "Create models for User, VpnNode, and Session."
 - "Implement authentication flow with mock service."
 - "Design Sign In screen in XAML."
@@ -78,7 +75,7 @@ KeenVPN is a native Windows MVP VPN client built with .NET 9 and WPF. It demonst
   - `SessionStore` object stores current user and connected node in memory.
 
 ## Demo Video
-See `demo.mp4` for a walkthrough of the app and architecture.
+See `https://drive.google.com/file/d/1zqfdEUylsg4JeURMnKmL5Ss0TeFnkxOT/view?usp=drive_link` for a walkthrough of the app and architecture.
 
 ## License
 MIT
